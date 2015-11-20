@@ -1,7 +1,7 @@
 "use strict";
 
 let Dispatcher = require('./dispatcher');
-const ACTION_TYPES = {SWITCH_LANGUAGE: 'SWITCH_LANGUAGE', INIT_APP: 'INIT_APP'};
+const ACTION_TYPES = require('./action-types');
 
 let Actions = {
   switchLanguage(language) {

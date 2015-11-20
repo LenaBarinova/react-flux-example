@@ -5,7 +5,7 @@ let EventEmitter = require('events').EventEmitter;
 
 let api =  require('./api');
 
-const ACTION_TYPES = {SWITCH_LANGUAGE: 'SWITCH_LANGUAGE', INIT_APP: 'INIT_APP'};
+const ACTION_TYPES = require('./action-types');
 const CHANGE_EVENT = 'change';
 
 let _content;

@@ -1,22 +1,31 @@
 var gulp = require('gulp');
+var plug = require('gulp-load-plugins')({ lazy: true });
 
 var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var del = require('del');
 
-gulp.task('build', ['clean'], function () {
+gulp.task('build', ['copy-files'], function () {
   return browserify({
     extensions: ['.jsx', '.js'],
-    entries: 'app.jsx',
+    entries: './src/app.jsx',
   })
     .transform(babelify.configure({ ignore: /(node_modules)/ }))
     .bundle()
     .on("error", function (err) { console.log("Error : " + err.message); })
     .pipe(source('app.js'))
-    .pipe(gulp.dest('./'));
+    .pipe(buffer())
+    .pipe(plug.uglify())
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('clean', function () {
-  return del('./app.js');
+  return del('./dist/');
+});
+
+gulp.task('copy-files', ['clean'], function() {
+  return gulp.src(['./src/index.html', './favicon.ico'])
+    .pipe(gulp.dest('./dist/'));
 });
