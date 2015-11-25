@@ -20,6 +20,10 @@ $npm install
 
 If you are using Visual Studio Code - you can build it using ⇧⌘B (on Mac).
 
-For those, who are in a hurry to get started with Flux yuo can skip all the getting started steps and go straight [here]().
+This is how the final result looks like:
+
+![](http://www.bebetterdeveloper.com/img/post_img/out.gif)
+
+For those, who are in a hurry to get started with Flux yuo can skip all the getting started steps and go straight [here](http://www.bebetterdeveloper.com/coding/getting-started-react-flux.html#step-4-flux).
 
 To read full article, please follow this link.
